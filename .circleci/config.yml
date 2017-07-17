@@ -1,9 +1,12 @@
 version: 2
 dependencies:
-override:
-- echo y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-21.1.2,android-21,extra-google-m2repository,extra-google-google_play_services,extra-android-support
-- chmod +x gradlew
-- ANDROID_HOME=/usr/local/android-sdk-linux ./gradlew dependencies
+  override:
+    - chmod +x gradlew
+    - ./gradlew dependencies
+test:
+  override:
+    - chmod +x grailsw
+    - ./grailsw test-app --non-interactive
 jobs:
   build:
     working_directory: ~/code
